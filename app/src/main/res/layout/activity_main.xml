@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.github.lzyzsd.dingdingheader.MainActivity">
+
+    <com.github.lzyzsd.dingdingheader.MyScrollView
+        android:id="@+id/sv_main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/titlebar_height"
+        android:background="#00ff00"
+        android:overScrollMode="never"
+        android:fadingEdge="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/padding_header"
+                android:layout_width="match_parent"
+                android:layout_height="350dp">
+            </View>
+
+            <include layout="@layout/content_main" />
+        </LinearLayout>
+    </com.github.lzyzsd.dingdingheader.MyScrollView>
+
+    <RelativeLayout
+        android:id="@+id/l_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_content_height"
+        android:background="#666666">
+
+        <ImageView
+            android:id="@+id/iv_header_avatar"
+            android:layout_marginTop="@dimen/titlebar_height"
+            android:layout_width="@dimen/header_avatar_size"
+            android:layout_height="@dimen/header_avatar_size"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/img_user_v"/>
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/iv_header_avatar"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:text="测试长名字"
+            android:maxLength="8"
+            android:ellipsize="end"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titlebar_height"
+            android:background="#000000ff"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/title_bar_avatar_size"
+                android:layout_height="@dimen/title_bar_avatar_size"
+                android:src="@drawable/img_user_v"/>
+        
+            <RelativeLayout
+                android:id="@+id/title_bar_title_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:id="@+id/iv_title_bar_avatar"
+                    android:layout_width="@dimen/title_bar_avatar_size"
+                    android:layout_height="@dimen/title_bar_avatar_size"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/img_user_v"/>
+
+                <TextView
+                    android:id="@+id/tv_title_bar_title"
+                    android:layout_toRightOf="@id/iv_title_bar_avatar"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="测试长名字"
+                    android:maxLength="8"
+                    android:ellipsize="end"
+                    android:textColor="#ffffff"
+                    android:visibility="visible"/>
+            </RelativeLayout>
+        </RelativeLayout>
+</FrameLayout>
