@@ -1,104 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.github.lzyzsd.dingdingheader.MainActivity">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/header_bg"
+             tools:context="com.github.lzyzsd.dingdingheader.MainActivity"
+    >
 
-    <com.github.lzyzsd.dingdingheader.MyScrollView
-        android:id="@+id/sv_main_scroll_view"
+    <in.srain.cube.views.ptr.PtrFrameLayout
+        android:id="@+id/store_house_ptr_frame"
+        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/titlebar_height"
-        android:background="#00ff00"
-        android:overScrollMode="never"
-        android:fadingEdge="none">
-        <LinearLayout
+        android:layout_height="match_parent"
+
+        cube_ptr:ptr_duration_to_close="300"
+        cube_ptr:ptr_duration_to_close_header="2000"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
+        cube_ptr:ptr_resistance="1.7">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <View
-                android:id="@+id/padding_header"
+            <com.github.lzyzsd.dingdingheader.MyScrollView
+                android:id="@+id/sv_main_scroll_view"
                 android:layout_width="match_parent"
-                android:layout_height="350dp">
-            </View>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/titlebar_height"
+                android:fadingEdge="none"
+                android:overScrollMode="never">
 
-            <include layout="@layout/content_main" />
-        </LinearLayout>
-    </com.github.lzyzsd.dingdingheader.MyScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/l_header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/header_content_height"
-        android:background="#666666">
+                    <View
+                        android:id="@+id/padding_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp">
+                    </View>
 
-        <ImageView
-            android:id="@+id/iv_header_avatar"
-            android:layout_marginTop="@dimen/titlebar_height"
-            android:layout_width="@dimen/header_avatar_size"
-            android:layout_height="@dimen/header_avatar_size"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/img_user_v"/>
+                    <include layout="@layout/content_main"/>
+                </LinearLayout>
+            </com.github.lzyzsd.dingdingheader.MyScrollView>
 
-        <TextView
-            android:id="@+id/tv_header_title"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/iv_header_avatar"
-            android:textSize="18sp"
-            android:textColor="#ffffff"
-            android:text="测试长名字"
-            android:maxLength="8"
-            android:ellipsize="end"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/titlebar_height"
-            android:background="#000000ff"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin">
-
-            <ImageView
-                android:layout_marginLeft="30dp"
-                android:layout_centerVertical="true"
-                android:layout_width="@dimen/title_bar_avatar_size"
-                android:layout_height="@dimen/title_bar_avatar_size"
-                android:src="@drawable/img_user_v"/>
-        
             <RelativeLayout
-                android:id="@+id/title_bar_title_container"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_vertical">
+                android:id="@+id/l_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/header_content_height"
+                android:background="@color/header_bg">
+
                 <ImageView
-                    android:id="@+id/iv_title_bar_avatar"
-                    android:layout_width="@dimen/title_bar_avatar_size"
-                    android:layout_height="@dimen/title_bar_avatar_size"
+                    android:id="@+id/iv_header_avatar"
+                    android:layout_width="@dimen/header_avatar_size"
+                    android:layout_height="@dimen/header_avatar_size"
+                    android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/img_user_v"/>
+                    android:layout_marginTop="@dimen/titlebar_height"
+                    android:src="@drawable/default_avatar"/>
 
                 <TextView
-                    android:id="@+id/tv_title_bar_title"
-                    android:layout_toRightOf="@id/iv_title_bar_avatar"
-                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tv_header_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="测试长名字"
-                    android:maxLength="8"
+                    android:layout_below="@id/iv_header_avatar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
                     android:ellipsize="end"
+                    android:maxLength="8"
+                    android:text="hi大头鬼hi"
                     android:textColor="#ffffff"
-                    android:visibility="visible"/>
+                    android:textSize="16sp"/>
             </RelativeLayout>
+
+        </FrameLayout>
+    </in.srain.cube.views.ptr.PtrFrameLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@android:color/transparent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titlebar_height"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back"/>
+
+            <ImageView
+                android:id="@+id/iv_title_bar_avatar"
+                android:layout_width="@dimen/title_bar_avatar_size"
+                android:layout_height="@dimen/title_bar_avatar_size"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/back_arrow"
+                android:src="@drawable/default_avatar"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/tv_title_bar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/iv_title_bar_avatar"
+                android:ellipsize="end"
+                android:maxLength="8"
+                android:text="hi大头鬼hi"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:visibility="invisible"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#aeaeae"/>
         </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
 </FrameLayout>
